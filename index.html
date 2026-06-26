@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图片浏览</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+}
+
+#gallery{
+    max-width:1000px;
+    margin:auto;
+}
+
+#gallery img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+</style>
+</head>
+
+<body>
+
+<div id="gallery"></div>
+
+<script>
+const gallery = document.getElementById("gallery");
+
+for(let i = 1; i <= 79; i++){
+    const img = document.createElement("img");
+
+    // 文件名格式： (1).jpg
+    img.src = ` (${i}).jpg`;
+
+    img.loading = "lazy";
+    img.onerror = function(){
+        this.style.display = "none";
+    };
+
+    gallery.appendChild(img);
+}
+</script>
+
+</body>
+</html>
